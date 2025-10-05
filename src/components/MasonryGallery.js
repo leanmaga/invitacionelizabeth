@@ -292,7 +292,7 @@ const MasonryGallery = () => {
               className="masonry-image"
               onLoad={handleImageLoad}
               onError={() => handleImageError(image.src)}
-              priority={image.id <= 3}
+              priority={true}
             />
 
             {!isMobile && hoveredImage === image.id && (
