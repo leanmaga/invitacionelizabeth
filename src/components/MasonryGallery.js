@@ -3,6 +3,7 @@ import { X, ZoomIn, MessageCircle, Send, Heart, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useLoading } from "@/components/PageLoader";
 import "../app/masonry.css";
+import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
 const MasonryGallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -21,7 +22,7 @@ const MasonryGallery = () => {
     commentText: "",
   });
   const [submittingComment, setSubmittingComment] = useState(false);
-
+  const { colores } = useQuinceaneraConfig();
   const { updateImageCount, incrementLoadedImages } = useLoading();
   const loadedCount = useRef(0);
   const hasInitialized = useRef(false); // ✅ AGREGADO
@@ -263,7 +264,14 @@ const MasonryGallery = () => {
   };
 
   return (
-    <div className="masonry-gallery" role="main" id="gallery">
+    <div
+      className="min-h-screen overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${colores.primario[50]} 0%, ${colores.fondo} 50%, ${colores.secundario[100]} 100%)`,
+      }}
+      role="main"
+      id="gallery"
+    >
       <div
         className="masonry-grid"
         role="img"
