@@ -53,7 +53,7 @@ export const clientConfig = {
     nombreFamilia: "Familia González",
     telefono: "+54 9 11 2271-0612",
     email: "contacto@example.com",
-    whatsapp: "+541127710612", // Sin espacios ni guiones
+    whatsapp: "+541122710612", // Sin espacios ni guiones
   },
 
   // 📱 REDES SOCIALES
