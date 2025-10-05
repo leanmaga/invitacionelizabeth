@@ -220,6 +220,7 @@
   object-fit: cover !important;
   max-height: 400px !important;
   display: block !important;
+  position: relative !important;
 }
 
 /* Área inferior del polaroid */
@@ -478,6 +479,8 @@
 .messages-area {
   flex: 1;
   overflow-y: auto;
+  padding-right: 8px;
+  padding-bottom: 20px;
 }
 
 .loading-messages {
@@ -513,20 +516,23 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow: visible;
 }
 
 .handwritten-message {
   margin: 16px 0;
-  padding: 16px 0;
+  padding: 20px 0; /* ← CAMBIA de 16px a 20px */
+  overflow: visible;
 }
 
 .message-text {
   font-family: "Dancing Script", "Brush Script MT", cursive;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 24px;
+  line-height: 2; /* ← CAMBIA de 1.6 a 2 */
   color: rgb(30, 58, 138);
   transform-origin: left center;
-  margin: 0;
+  margin: 4px;
+  padding: 4px 0; /* ← AÑADE ESTO */
   font-style: italic;
 }
 

@@ -30,18 +30,15 @@ export default function RSVPSection() {
   const [checkingExisting, setCheckingExisting] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
-  // ✅ Obtener datos usando el hook centralizado
   const { nombre, whatsapp, telefono, fechaLimiteRSVP, colores } =
     useQuinceaneraConfig();
 
-  // Validación de variables de entorno
   if (!whatsapp) {
     console.error(
       "❌ NEXT_PUBLIC_WHATSAPP_NUMBER no está configurado en .env.local"
     );
   }
 
-  // Función para verificar si ya existe una confirmación
   const checkExistingRSVP = async (name, phone) => {
     if (!name.trim()) return null;
 
@@ -53,7 +50,6 @@ export default function RSVPSection() {
     }
   };
 
-  // Función para guardar en base de datos
   const saveToDatabase = async (data) => {
     try {
       const { error } = await supabase.from("rsvp_confirmations").insert([
@@ -426,7 +422,7 @@ export default function RSVPSection() {
                 <div
                   className="absolute inset-0"
                   style={{
-                    background: `linear-gradient(135deg, ${colores.primario[900]}33, ${colores.primario[800]}4d, ${colores.primario[700]}66)`,
+                    background: `linear-gradient(135deg, ${colores.primario[900]}99, ${colores.primario[800]}b3, ${colores.primario[700]}cc)`,
                   }}
                 />
 
@@ -443,10 +439,9 @@ export default function RSVPSection() {
                   </div>
 
                   <h2
-                    className="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight"
+                    className="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight text-white"
                     style={{
-                      color: colores.primario[800],
-                      textShadow: `0 4px 20px ${colores.primario[600]}4d`,
+                      textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
                     }}
                   >
                     Confirmá tu
@@ -712,6 +707,12 @@ export default function RSVPSection() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${colores.primario[900]}99, ${colores.primario[800]}b3, ${colores.primario[700]}cc)`,
             }}
           />
         </div>

@@ -59,7 +59,7 @@ export default function Footer() {
       <div
         className="absolute inset-0 opacity-25"
         style={{
-          backgroundImage: "url(/assets/10.jpg)",
+          backgroundImage: "url(/assets/tapiz2.png)",
           backgroundSize: "cover",
           backgroundPosition: "center 20%",
           backgroundRepeat: "no-repeat",

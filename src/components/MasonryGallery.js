@@ -342,10 +342,9 @@ const MasonryGallery = () => {
             <div className={`polaroid-container ${isFlipped ? "flipped" : ""}`}>
               <div className="polaroid-front">
                 <div className="polaroid-content">
-                  <Image
+                  <img
                     src={selectedImage.src}
                     alt={selectedImage.alt}
-                    fill
                     className="polaroid-image"
                   />
 

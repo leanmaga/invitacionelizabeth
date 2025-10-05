@@ -91,32 +91,6 @@ const PageLoader = () => {
     setParticles(particleData);
   }, []);
 
-  if (!isClient) {
-    return (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center"
-        style={{
-          background: `linear-gradient(135deg, ${colores.primario[50]}, ${colores.secundario[50]}, ${colores.terciario[50]})`,
-        }}
-      >
-        <div className="text-center z-10 px-8">
-          <div className="text-6xl mb-8">✨</div>
-          <h1
-            className="text-4xl md:text-5xl font-serif font-bold"
-            style={{
-              background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.primario[600]}, ${colores.terciario[700]})`,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Cargando...
-          </h1>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <motion.div
       initial={{ opacity: 1 }}
