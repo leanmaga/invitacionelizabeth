@@ -1,0 +1,993 @@
+@import "tailwindcss";
+
+@theme {
+  /* 🌸 Paleta Rosa Dusty - Color principal de la quinceañera */
+  --color-quince-50: #fceef0;
+  --color-quince-100: #f9dde0;
+  --color-quince-200: #f3bbc1;
+  --color-quince-300: #ec99a2;
+  --color-quince-400: #e47783;
+  --color-quince-500: #d4989d;
+  --color-quince-600: #c17b81;
+  --color-quince-700: #a55d62;
+  --color-quince-800: #7d464a;
+  --color-quince-900: #543032;
+
+  /* 🏖️ Paleta Beige/Arena - Color secundario elegante */
+  --color-beige-50: #faf8f6;
+  --color-beige-100: #f4f0eb;
+  --color-beige-200: #ede7dc;
+  --color-beige-300: #e6ddd0;
+  --color-beige-400: #e1cfc4;
+  --color-beige-500: #d4bfb0;
+  --color-beige-600: #c0a999;
+  --color-beige-700: #a38977;
+  --color-beige-800: #7a6557;
+  --color-beige-900: #5a4a3f;
+
+  /* 💕 Paleta Rosa Claro - Color terciario para acentos */
+  --color-rose-50: #fdf6f7;
+  --color-rose-100: #fbedf0;
+  --color-rose-200: #f7dbe0;
+  --color-rose-300: #f3c9d1;
+  --color-rose-400: #e8b4b8;
+  --color-rose-500: #dfa0a7;
+  --color-rose-600: #d18c94;
+  --color-rose-700: #b97179;
+  --color-rose-800: #8f565c;
+  --color-rose-900: #6b4145;
+
+  /* ⚫ Paleta Elegante (Grises y Negros) - Para texto y elementos */
+  --color-elegant-50: #f8fafc;
+  --color-elegant-100: #f1f5f9;
+  --color-elegant-200: #e2e8f0;
+  --color-elegant-300: #cbd5e1;
+  --color-elegant-400: #94a3b8;
+  --color-elegant-500: #64748b;
+  --color-elegant-600: #475569;
+  --color-elegant-700: #334155;
+  --color-elegant-800: #1e293b;
+  --color-elegant-900: #0f172a;
+  --color-elegant-950: #020617;
+
+  /* 🎨 Variables del sistema de diseño actualizadas */
+  --color-background: #faf8f6;
+  --color-foreground: #543032;
+  --color-card: #ffffff;
+  --color-card-foreground: #543032;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #543032;
+  --color-primary: #d4989d; /* Rosa dusty como color primario */
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #e1cfc4; /* Beige como secundario */
+  --color-secondary-foreground: #543032;
+  --color-muted: #f4f0eb;
+  --color-muted-foreground: #7d464a;
+  --color-accent: #e8b4b8; /* Rosa claro como accent */
+  --color-accent-foreground: #543032;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+  --color-border: #ede7dc;
+  --color-input: #ede7dc;
+  --color-ring: #d4989d; /* Anillo rosa dusty */
+
+  /* Border radius */
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+
+  /* Fuentes */
+  --font-family-elegant: ui-serif, Georgia, Cambria, "Times New Roman", Times,
+    serif;
+  --font-family-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-family-coockie: var(--font-coockie), cursive;
+}
+
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-background: #543032;
+    --color-foreground: #fceef0;
+    --color-card: #7d464a;
+    --color-card-foreground: #fceef0;
+    --color-popover: #7d464a;
+    --color-popover-foreground: #fceef0;
+    --color-primary: #e8b4b8; /* Rosa claro en dark mode */
+    --color-primary-foreground: #543032;
+    --color-secondary: #c0a999;
+    --color-secondary-foreground: #fceef0;
+    --color-muted: #a55d62;
+    --color-muted-foreground: #f3bbc1;
+    --color-accent: #e1cfc4;
+    --color-accent-foreground: #543032;
+    --color-destructive: #7f1d1d;
+    --color-destructive-foreground: #fceef0;
+    --color-border: #a55d62;
+    --color-input: #a55d62;
+    --color-ring: #e8b4b8;
+  }
+}
+
+.font-coockie {
+  font-family: var(--font-family-coockie);
+}
+
+/* ==========================================
+   🎨 ESTILOS PERSONALIZADOS
+   ========================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar con nuevos colores rosa dusty */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-quince-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-quince-400);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-quince-500);
+}
+
+/* ==========================================
+   ✨ GLASS MORPHISM EFFECTS
+   ========================================== */
+
+/* Glass effect auténtico - versión rosa dusty */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(212, 152, 157, 0.1);
+  backdrop-filter: blur(6.1px);
+  -webkit-backdrop-filter: blur(6.1px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Glass effect variant rosa dusty */
+.glass-quince {
+  background: rgba(212, 152, 157, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(212, 152, 157, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 152, 157, 0.3);
+}
+
+/* Glass effect variant beige */
+.glass-beige {
+  background: rgba(225, 207, 196, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(225, 207, 196, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(225, 207, 196, 0.35);
+}
+
+/* Glass morphism para cards */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(212, 152, 157, 0.2);
+}
+
+/* ==========================================
+   🎭 GRADIENTES PERSONALIZADOS
+   ========================================== */
+
+/* Gradiente principal rosa a beige */
+.gradient-quince {
+  background: linear-gradient(
+    135deg,
+    #f9dde0 0%,
+    #e8b4b8 25%,
+    #d4989d 50%,
+    #e1cfc4 75%,
+    #f4f0eb 100%
+  );
+}
+
+/* Gradiente suave para fondos */
+.gradient-soft {
+  background: linear-gradient(to bottom, #fceef0 0%, #f4f0eb 100%);
+}
+
+/* Gradiente para overlays */
+.gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(212, 152, 157, 0) 0%,
+    rgba(212, 152, 157, 0.8) 100%
+  );
+}
+
+/* ==========================================
+   🎯 ANIMACIONES
+   ========================================== */
+
+/* Fade in animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Clases de animación */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* ==========================================
+   🎨 UTILIDADES ADICIONALES
+   ========================================== */
+
+/* Hover effects suaves */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(212, 152, 157, 0.15);
+}
+
+/* Transiciones suaves */
+.transition-smooth {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Text gradient rosa dusty */
+.text-gradient-quince {
+  background: linear-gradient(135deg, #d4989d 0%, #e8b4b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sombras personalizadas */
+.shadow-quince {
+  box-shadow: 0 10px 25px -5px rgba(212, 152, 157, 0.2),
+    0 8px 10px -6px rgba(212, 152, 157, 0.15);
+}
+
+.shadow-beige {
+  box-shadow: 0 10px 25px -5px rgba(225, 207, 196, 0.2),
+    0 8px 10px -6px rgba(225, 207, 196, 0.15);
+}
+
+/* ==========================================
+   📱 RESPONSIVE UTILITIES
+   ========================================== */
+
+/* Ocultar en móvil */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Ocultar en desktop */
+@media (min-width: 641px) {
+  .hide-desktop {
+    display: none;
+  }
+}
+
+/* ==========================================
+   🎯 ACCESIBILIDAD
+   ========================================== */
+
+/* Focus visible para accesibilidad */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reducir movimiento para usuarios con preferencia */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   🎭 DRESS CODE SECTION - ANIMACIONES
+   ========================================== */
+
+/* Animación de partículas flotantes */
+@keyframes dresscode-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(270deg);
+  }
+}
+
+/* Animación de sparkles */
+@keyframes dresscode-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Animación slide desde abajo */
+@keyframes dresscode-slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación slide desde la izquierda */
+@keyframes dresscode-slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación slide desde la derecha */
+@keyframes dresscode-slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación shimmer para texto */
+@keyframes dresscode-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Clases de animación para partículas */
+.dresscode-particle {
+  animation: dresscode-float var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.dresscode-sparkle-particle {
+  animation: dresscode-sparkle 2s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* Clases de animación de entrada */
+.dresscode-slide-up {
+  animation: dresscode-slideInUp 0.8s ease-out forwards;
+}
+
+.dresscode-slide-left {
+  animation: dresscode-slideInLeft 0.6s ease-out forwards;
+}
+
+.dresscode-slide-right {
+  animation: dresscode-slideInRight 0.6s ease-out forwards;
+}
+
+/* Clase para texto con efecto shimmer */
+.dresscode-shimmer-text {
+  animation: dresscode-shimmer 3s ease-in-out infinite;
+}
+
+/* Efecto hover para cards */
+.dresscode-card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dresscode-card-hover:hover {
+  transform: translateY(-20px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(212, 152, 157, 0.3);
+}
+
+/* ==========================================
+   📍 LOCATION SECTION - ANIMACIONES
+   ========================================== */
+
+/* Animación fade in desde abajo */
+@keyframes location-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación fade in desde la izquierda */
+@keyframes location-fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación fade in desde la derecha */
+@keyframes location-fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animación de rotación continua */
+@keyframes location-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animación de pulso */
+@keyframes location-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Clases de animación de entrada */
+.location-fade-in-up {
+  opacity: 0;
+  animation: location-fadeInUp 0.8s ease-out forwards;
+}
+
+.location-fade-in-left {
+  opacity: 0;
+  animation: location-fadeInLeft 0.8s ease-out forwards;
+}
+
+.location-fade-in-right {
+  opacity: 0;
+  animation: location-fadeInRight 0.8s ease-out forwards;
+}
+
+/* Efecto hover con escala */
+.location-scale-hover:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+/* Elemento rotando continuamente */
+.location-rotate-element {
+  animation: location-rotate 20s linear infinite;
+}
+
+/* Elemento con pulso */
+.location-pulse-element {
+  animation: location-pulse 2s infinite;
+}
+
+/* Transición suave para el slider */
+.location-slide-transition {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ==========================================
+   🎵 MUSIC REQUESTS - ANIMACIONES Y EFECTOS
+   ========================================== */
+
+/* Scrollbar personalizado para mensajes */
+.music-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #d4989d #fceef0;
+}
+
+.music-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.music-scrollbar::-webkit-scrollbar-track {
+  background: #fceef0;
+  border-radius: 10px;
+}
+
+.music-scrollbar::-webkit-scrollbar-thumb {
+  background: #d4989d;
+  border-radius: 10px;
+}
+
+.music-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #c17b81;
+}
+
+/* Animación fade in desde abajo */
+@keyframes music-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.music-fade-in-up {
+  animation: music-fadeInUp 0.3s ease-out forwards;
+}
+
+/* Efecto 3D Flip Card */
+.music-flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 100vh;
+}
+
+.music-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.music-flip-card.flipped .music-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.music-flip-card-front,
+.music-flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.music-flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Control de pointer-events basado en estado */
+.music-flip-card:not(.flipped) .music-flip-card-front {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.music-flip-card:not(.flipped) .music-flip-card-back {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.music-flip-card.flipped .music-flip-card-front {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.music-flip-card.flipped .music-flip-card-back {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.music-flip-card.flipped .music-flip-card-back * {
+  pointer-events: auto;
+}
+
+/* Botón dorado con efecto de pulso */
+.music-golden-button {
+  animation: music-pulseGolden 2s infinite;
+}
+
+@keyframes music-pulseGolden {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Rotación de sparkles */
+.music-rotate-sparkles {
+  animation: music-rotateSpark 4s linear infinite;
+}
+
+@keyframes music-rotateSpark {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   📝 RSVP SECTION - ANIMACIONES Y EFECTOS
+   ========================================== */
+
+/* Animaciones de entrada */
+@keyframes rsvp-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rsvp-scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rsvp-bounceIcon {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+}
+
+@keyframes rsvp-rotateSpark {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rsvp-pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 152, 157, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 152, 157, 0.8);
+  }
+}
+
+@keyframes rsvp-bounceArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rsvp-pulseGolden {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Clases de animación */
+.rsvp-fade-in-up {
+  opacity: 0;
+  animation: rsvp-fadeInUp 0.8s ease-out forwards;
+}
+
+.rsvp-scale-in {
+  opacity: 0;
+  animation: rsvp-scaleIn 0.8s ease-out forwards;
+}
+
+.rsvp-bounce-icon {
+  animation: rsvp-bounceIcon 2s infinite;
+}
+
+.rsvp-rotate-sparkles {
+  animation: rsvp-rotateSpark 4s linear infinite;
+}
+
+.rsvp-pulse-glow {
+  animation: rsvp-pulseGlow 2s infinite;
+}
+
+.rsvp-bounce-arrow {
+  animation: rsvp-bounceArrow 2s infinite;
+}
+
+.rsvp-golden-button {
+  animation: rsvp-pulseGolden 2s infinite;
+}
+
+/* Efecto 3D Flip Card para RSVP */
+.rsvp-flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 100vh;
+}
+
+.rsvp-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.rsvp-flip-card.flipped .rsvp-flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.rsvp-flip-card-front,
+.rsvp-flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.rsvp-flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Control de pointer-events para flip card */
+.rsvp-flip-card:not(.flipped) .rsvp-flip-card-front {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.rsvp-flip-card:not(.flipped) .rsvp-flip-card-back {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rsvp-flip-card.flipped .rsvp-flip-card-front {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rsvp-flip-card.flipped .rsvp-flip-card-back {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.rsvp-flip-card.flipped .rsvp-flip-card-back * {
+  pointer-events: auto;
+}
+
+/* ==========================================
+   🦶 FOOTER - ANIMACIONES Y EFECTOS
+   ========================================== */
+
+/* Animación de partículas flotantes suaves */
+@keyframes footer-floatGently {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(90deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(135deg);
+  }
+}
+
+/* Animación shimmer para texto */
+@keyframes footer-shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animación de pulso con resplandor */
+@keyframes footer-pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 152, 157, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 152, 157, 0.5);
+    transform: scale(1.05);
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes footer-slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes footer-slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes footer-slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Clases de animación */
+.footer-particle-gentle {
+  animation: footer-floatGently var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.footer-shimmer-text {
+  animation: footer-shimmerGold 3s ease-in-out infinite;
+}
+
+.footer-pulse-glow {
+  animation: footer-pulseGlow 3s ease-in-out infinite;
+}
+
+.footer-slide-in-up {
+  animation: footer-slideInUp 0.8s ease-out forwards;
+}
+
+.footer-slide-in-left {
+  animation: footer-slideInLeft 0.6s ease-out forwards;
+}
+
+.footer-slide-in-right {
+  animation: footer-slideInRight 0.6s ease-out forwards;
+}
+
+/* Efecto hover lift */
+.footer-hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-hover-lift:hover {
+  transform: translateY(-5px) scale(1.05);
+}

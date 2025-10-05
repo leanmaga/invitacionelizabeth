@@ -1,0 +1,292 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Music } from "lucide-react";
+import MusicPlayer from "./MusicPlayer";
+import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
+
+const navItems = [
+  { name: "Inicio", href: "#hero" },
+  { name: "Detalles", href: "#details" },
+  { name: "Galería", href: "#gallery" },
+  { name: "Dress Code", href: "#dresscode" },
+  { name: "Ubicación", href: "#location" },
+  { name: "Música", href: "#music" },
+  { name: "RSVP", href: "#rsvp" },
+];
+
+export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // ✅ Usar configuración centralizada
+  const { nombre, colores } = useQuinceaneraConfig();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Cerrar menú móvil cuando se hace click en un enlace
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
+  // Prevenir scroll cuando el menú móvil está abierto
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      {/* Navbar fijo siempre arriba */}
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "shadow-lg backdrop-blur-md" : "backdrop-blur-sm"
+        }`}
+        style={{
+          backgroundColor: scrolled
+            ? `${colores.primario[50]}e6` // 90% opacity
+            : `${colores.primario[50]}cc`, // 80% opacity
+          borderBottom: `1px solid ${
+            scrolled
+              ? `${colores.primario[200]}80`
+              : `${colores.primario[100]}4d`
+          }`,
+        }}
+      >
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 md:h-20">
+            {/* Logo */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="font-coockie text-xl sm:text-2xl md:text-3xl font-bold flex-shrink-0"
+              style={{
+                color: colores.primario[600],
+                textShadow: `0 0 10px ${colores.primario[400]}, 0 0 20px ${colores.primario[500]}`,
+                fontFamily: "var(--font-dancing)",
+              }}
+            >
+              {nombre}
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{
+                    scale: 1.05,
+                    textShadow: `0 0 8px ${colores.primario[400]}`,
+                  }}
+                  className="font-semibold transition-all text-sm lg:text-base whitespace-nowrap px-3 py-2 rounded-lg"
+                  style={{
+                    color: colores.primario[800],
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = colores.primario[600];
+                    e.target.style.backgroundColor = `${colores.primario[100]}80`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = colores.primario[800];
+                    e.target.style.backgroundColor = "transparent";
+                  }}
+                >
+                  {item.name}
+                </motion.a>
+              ))}
+
+              {/* Reproductor de música en desktop */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+                className="ml-2 lg:ml-4"
+              >
+                <MusicPlayer showVolumeControl={true} />
+              </motion.div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center gap-2">
+              {/* Reproductor de música en móvil */}
+              <div>
+                <MusicPlayer showVolumeControl={false} />
+              </div>
+
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-lg transition-all"
+                style={{
+                  color: colores.primario[800],
+                  boxShadow: `0 2px 8px ${colores.primario[400]}4d`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = colores.primario[600];
+                  e.currentTarget.style.backgroundColor = `${colores.primario[100]}80`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = colores.primario[800];
+                  e.currentTarget.style.backgroundColor = "transparent";
+                }}
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Overlay */}
+        <AnimatePresence>
+          {isOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsOpen(false)}
+                className="md:hidden fixed inset-0 backdrop-blur-sm"
+                style={{
+                  top: "64px",
+                  backgroundColor: `${colores.primario[900]}33`, // 20% opacity
+                }}
+              />
+
+              {/* Menu Panel */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.2 }}
+                className="md:hidden absolute top-full left-0 right-0 w-full backdrop-blur-md shadow-lg"
+                style={{
+                  backgroundColor: `${colores.primario[50]}f2`, // 95% opacity
+                  borderTop: `1px solid ${colores.primario[200]}80`,
+                  boxShadow: `0 8px 32px ${colores.primario[400]}4d`,
+                }}
+              >
+                <div className="px-4 py-4 space-y-1">
+                  {navItems.map((item, index) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={handleLinkClick}
+                      whileHover={{
+                        scale: 1.02,
+                        textShadow: `0 0 8px ${colores.primario[400]}`,
+                      }}
+                      className="block py-3 px-3 font-semibold rounded-lg transition-all"
+                      style={{
+                        color: colores.primario[800],
+                        backdropFilter: "blur(10px)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.color = colores.primario[600];
+                        e.target.style.backgroundColor = `${colores.primario[100]}99`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.color = colores.primario[800];
+                        e.target.style.backgroundColor = "transparent";
+                      }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  ))}
+
+                  {/* Control de música adicional en menú móvil */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navItems.length * 0.1 }}
+                    className="pt-2 mt-2"
+                    style={{
+                      borderTop: `1px solid ${colores.primario[400]}66`,
+                    }}
+                  >
+                    <div
+                      className="py-2 px-3 text-sm font-semibold flex items-center gap-2"
+                      style={{
+                        color: colores.primario[200],
+                        textShadow: `0 0 8px ${colores.primario[400]}66, 1px 1px 2px rgba(0,0,0,0.3)`,
+                      }}
+                    >
+                      <motion.div
+                        animate={{
+                          rotate: [0, 360],
+                          color: [
+                            colores.terciario[300],
+                            colores.primario[400],
+                            colores.primario[500],
+                            colores.terciario[400],
+                            colores.terciario[300],
+                          ],
+                          filter: [
+                            `drop-shadow(0 0 8px ${colores.primario[400]})`,
+                            `drop-shadow(0 0 12px ${colores.primario[500]})`,
+                            `drop-shadow(0 0 8px ${colores.primario[400]})`,
+                          ],
+                        }}
+                        transition={{
+                          rotate: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear",
+                          },
+                          color: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          },
+                          filter: {
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          },
+                        }}
+                      >
+                        <Music size={16} />
+                      </motion.div>
+                      Control de Música
+                    </div>
+                    <div className="px-3 py-2">
+                      <MusicPlayer
+                        className="w-full justify-center"
+                        showVolumeControl={true}
+                      />
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+
+      {/* Spacer para compensar el navbar fijo */}
+      <div className="h-16 md:h-20" />
+    </>
+  );
+}
