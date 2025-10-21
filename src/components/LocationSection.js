@@ -12,7 +12,8 @@ export default function LocationSection() {
     lugar,
     direccion,
     telefono,
-    horaEvento,
+    horaInicio,
+    horaFin,
     googleMapsUrl,
     wazeUrl,
     imagenesSalon,
@@ -172,9 +173,9 @@ export default function LocationSection() {
                       Horario
                     </h4>
                     <p style={{ color: colores.primario[700] }}>
-                      Recepción: {horaEvento.split(" - ")[0]}
+                      Recepción: {horaInicio}
                       <br />
-                      Evento hasta: {horaEvento.split(" - ")[1]}
+                      Evento hasta: {horaFin}
                     </p>
                   </div>
                 </div>

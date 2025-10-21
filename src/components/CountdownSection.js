@@ -16,8 +16,14 @@ export default function CountdownSection() {
   const [pulseKey, setPulseKey] = useState(0);
 
   // ✅ Usar configuración centralizada
-  const { fechaEvento, fechaCompleta, horaEvento, nombre, colores } =
-    useQuinceaneraConfig();
+  const {
+    fechaEvento,
+    fechaCompleta,
+    horaEvento,
+    nombre,
+    colores,
+    horaInicio,
+  } = useQuinceaneraConfig();
 
   // Obtener clases de color
   const colorClasses = getPrimaryColorClasses();
@@ -39,7 +45,7 @@ export default function CountdownSection() {
     // Parsear la fecha del evento
     const calculateTimeLeft = () => {
       try {
-        const eventDate = new Date(fechaCompleta);
+        const eventDate = new Date(`${fechaCompleta}T${horaInicio}:00`);
         const now = new Date();
         const difference = eventDate - now;
 
