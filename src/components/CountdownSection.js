@@ -181,68 +181,9 @@ export default function CountdownSection() {
 
       {/* Contenido principal */}
       <div className="relative z-10 max-w-6xl mx-auto text-center">
-        {/* Header con icono */}
-        <div className="mb-8 flex justify-center">
-          <div
-            className="relative p-6 rounded-full glass-card"
-            style={{ borderColor: colores.primario[300] }}
-          >
-            <Crown
-              className="w-12 h-12"
-              style={{ color: colores.primario[600] }}
-            />
-            <div className="absolute inset-0 rounded-full shimmer" />
-          </div>
-        </div>
-
-        {/* Título */}
-        <div className="mb-4">
-          <h2
-            className="text-5xl md:text-7xl font-bold mb-2 font-serif"
-            style={{ color: colores.primario[700] }}
-          >
-            {nombre}
-          </h2>
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Sparkles
-              className="w-6 h-6"
-              style={{ color: colores.primario[500] }}
-            />
-            <p
-              className="text-2xl md:text-3xl font-light"
-              style={{ color: colores.texto }}
-            >
-              Mis 15 Años
-            </p>
-            <Sparkles
-              className="w-6 h-6"
-              style={{ color: colores.primario[500] }}
-            />
-          </div>
-        </div>
-
-        {/* Fecha del evento */}
-        <div className="mb-12 glass-card rounded-2xl p-6 inline-block">
-          <div className="flex items-center gap-3 justify-center mb-2">
-            <Clock
-              className="w-6 h-6"
-              style={{ color: colores.primario[600] }}
-            />
-            <p
-              className="text-xl md:text-2xl font-medium"
-              style={{ color: colores.texto }}
-            >
-              {fechaEvento}
-            </p>
-          </div>
-          <p className="text-lg" style={{ color: colores.textoClaro }}>
-            {horaEvento}
-          </p>
-        </div>
-
         {/* Título del countdown */}
         <h3
-          className="text-3xl md:text-4xl font-bold mb-8"
+          className="font-Emilys_Candy text-3xl md:text-4xl font-bold mb-8"
           style={{ color: colores.primario[600] }}
         >
           Faltan

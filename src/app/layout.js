@@ -4,6 +4,7 @@ import {
   Playfair_Display,
   Cookie,
   Imperial_Script,
+  Emilys_Candy,
 } from "next/font/google";
 import {
   clientConfig,
@@ -29,6 +30,12 @@ const coockie = Cookie({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-coockie",
+});
+
+const candy = Emilys_Candy({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-Emilys_Candy",
 });
 
 // ✅ Obtener configuración desde client.config.js
@@ -132,7 +139,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang={idioma}
-      className={`${playfair.variable} ${dancing.variable} ${coockie.variable}`}
+      className={`${playfair.variable} ${dancing.variable} ${coockie.variable} ${candy.variable}`}
     >
       <head>
         {/* Preconexión a Google Fonts para mejor rendimiento */}

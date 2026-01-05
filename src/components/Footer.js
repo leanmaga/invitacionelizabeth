@@ -1,16 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import {
-  Heart,
-  Crown,
-  Sparkles,
-  Phone,
-  MessageCircle,
-  Instagram,
-  Star,
-  Gem,
-} from "lucide-react";
+import { Heart, Crown, Sparkles, Star, Gem } from "lucide-react";
 import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 
 export default function Footer() {
@@ -25,8 +16,6 @@ export default function Footer() {
     horaEvento,
     lugar,
     direccion,
-    instagramUser,
-    nombreFamilia,
     colores,
   } = useQuinceaneraConfig();
 
@@ -49,19 +38,19 @@ export default function Footer() {
   const whatsappLink = `https://wa.me/${whatsapp.replace(
     /[^0-9]/g,
     ""
-  )}?text=Hola! Te escribo por la invitación de los 15 de ${nombre}`;
+  )}?text=Hola! Te escribo por la invitación de los 4 años de ${nombre}`;
 
   if (!mounted) return null;
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white py-20 overflow-hidden">
+    <footer className="h-screen relative bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white py-20 overflow-hidden">
       {/* Imagen de fondo con efecto sombreado */}
       <div
-        className="absolute inset-0 opacity-25"
+        className="absolute inset-0 opacity-70"
         style={{
-          backgroundImage: "url(/assets/tapiz2.png)",
+          backgroundImage: "url(/assets/tapiz2.jpg)",
           backgroundSize: "cover",
-          backgroundPosition: "center 20%",
+          backgroundPosition: "center 50%",
           backgroundRepeat: "no-repeat",
           maskImage:
             "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0) 80%)",
@@ -113,7 +102,7 @@ export default function Footer() {
           </div>
 
           <h2
-            className="font-serif text-4xl md:text-6xl font-bold mb-4 footer-shimmer-text"
+            className="font-Emilys_Candy text-4xl md:text-6xl font-bold mb-4 footer-shimmer-text"
             style={{
               background: `linear-gradient(90deg, ${colores.primario[400]} 0%, ${colores.primario[500]} 50%, ${colores.primario[400]} 100%)`,
               backgroundSize: "200% 100%",
@@ -156,11 +145,15 @@ export default function Footer() {
                   style={{ color: colores.primario[400] }}
                 />
                 <h3
-                  className="font-serif text-2xl font-bold"
+                  className="font-Emilys_Candy text-2xl font-bold"
                   style={{ color: colores.primario[300] }}
                 >
                   Detalles del Evento
-                </h3>
+                </h3>{" "}
+                <Sparkles
+                  className="w-6 h-6"
+                  style={{ color: colores.primario[400] }}
+                />
               </div>
 
               <div className="space-y-3 text-gray-300">

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect, createContext, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 import { Volume2, VolumeX } from "lucide-react";
+import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 import { useAudio } from "@/components/AudioContext";
 
 const LoadingContext = createContext();
@@ -10,44 +10,30 @@ const LoadingContext = createContext();
 export const LoadingProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const [loadedImages, setLoadedImages] = useState(0);
-  const [totalImages, setTotalImages] = useState(0);
   const [showAudioChoice, setShowAudioChoice] = useState(false);
 
-  const updateImageCount = (total) => {
-    setTotalImages(total);
-  };
-
-  const incrementLoadedImages = () => {
-    setLoadedImages((prev) => prev + 1);
-  };
-
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadingProgress(20);
-    }, 500);
+    // Simular carga progresiva sin esperar imágenes
+    const intervals = [
+      { progress: 20, delay: 300 },
+      { progress: 50, delay: 600 },
+      { progress: 80, delay: 900 },
+      { progress: 100, delay: 1200 },
+    ];
 
-    return () => clearTimeout(timer);
-  }, []);
+    intervals.forEach(({ progress, delay }) => {
+      setTimeout(() => {
+        setLoadingProgress(progress);
 
-  useEffect(() => {
-    if (totalImages > 0) {
-      const imageProgress = (loadedImages / totalImages) * 70;
-      const baseProgress = 20;
-      const finalProgress = Math.min(baseProgress + imageProgress, 90);
-      setLoadingProgress(finalProgress);
-
-      if (loadedImages === totalImages) {
-        setTimeout(() => {
-          setLoadingProgress(100);
-          // ✅ NUEVO: Mostrar opciones de audio en lugar de cerrar inmediatamente
+        // Mostrar elección de audio cuando llegue al 100%
+        if (progress === 100) {
           setTimeout(() => {
             setShowAudioChoice(true);
-          }, 500);
-        }, 300);
-      }
-    }
-  }, [loadedImages, totalImages]);
+          }, 300);
+        }
+      }, delay);
+    });
+  }, []);
 
   const closeLoader = () => {
     setIsLoading(false);
@@ -58,11 +44,7 @@ export const LoadingProvider = ({ children }) => {
       value={{
         isLoading,
         loadingProgress,
-        updateImageCount,
-        incrementLoadedImages,
         setIsLoading,
-        totalImages,
-        loadedImages,
         showAudioChoice,
         closeLoader,
       }}
@@ -81,21 +63,14 @@ export const useLoading = () => {
 };
 
 const PageLoader = () => {
-  const {
-    loadingProgress,
-    totalImages,
-    loadedImages,
-    showAudioChoice,
-    closeLoader,
-  } = useLoading();
-  const [isClient, setIsClient] = useState(false);
+  const { loadingProgress, showAudioChoice, closeLoader } = useLoading();
   const [particles, setParticles] = useState([]);
 
+  // Obtener colores y funciones de audio desde los hooks
   const { colores } = useQuinceaneraConfig();
   const { togglePlayPause, isPlaying } = useAudio();
 
   useEffect(() => {
-    setIsClient(true);
     const particleData = [...Array(20)].map((_, i) => ({
       id: i,
       x: Math.random() * 1000,
@@ -107,7 +82,6 @@ const PageLoader = () => {
     setParticles(particleData);
   }, []);
 
-  // ✅ NUEVO: Manejar click en "Reproducir Audio"
   const handlePlayWithAudio = async () => {
     if (!isPlaying) {
       await togglePlayPause();
@@ -115,7 +89,6 @@ const PageLoader = () => {
     closeLoader();
   };
 
-  // ✅ NUEVO: Manejar click en "Continuar sin Audio"
   const handleContinueWithoutAudio = () => {
     closeLoader();
   };
@@ -166,7 +139,6 @@ const PageLoader = () => {
       </div>
 
       <div className="text-center z-10 px-8">
-        {/* ✅ ACTUALIZADO: Ocultar animaciones cuando se muestran los botones */}
         <AnimatePresence mode="wait">
           {!showAudioChoice ? (
             <motion.div
@@ -310,15 +282,10 @@ const PageLoader = () => {
                 className="mt-4 font-medium"
                 style={{ color: colores.primario[700] }}
               >
-                {loadingProgress < 30 && "Preparando la experiencia..."}
-                {loadingProgress >= 30 &&
+                {loadingProgress < 50 && "Preparando la experiencia..."}
+                {loadingProgress >= 50 &&
                   loadingProgress < 90 &&
-                  totalImages > 0 &&
-                  `Cargando fotografías... ${loadedImages}/${totalImages}`}
-                {loadingProgress >= 30 &&
-                  loadingProgress < 90 &&
-                  totalImages === 0 &&
-                  "Cargando fotografías..."}
+                  "Cargando recursos..."}
                 {loadingProgress >= 90 &&
                   loadingProgress < 100 &&
                   "Casi listo..."}
@@ -326,7 +293,6 @@ const PageLoader = () => {
               </motion.p>
             </motion.div>
           ) : (
-            // ✅ NUEVO: Pantalla de elección de audio
             <motion.div
               key="audio-choice"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -359,7 +325,7 @@ const PageLoader = () => {
                 </motion.div>
 
                 <h2
-                  className="text-3xl md:text-4xl font-serif font-bold mb-4"
+                  className="text-3xl md:text-4xl font-Emilys_Candy font-bold mb-4"
                   style={{
                     background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.terciario[700]})`,
                     WebkitBackgroundClip: "text",
@@ -385,7 +351,6 @@ const PageLoader = () => {
                 transition={{ delay: 0.4 }}
                 className="space-y-4"
               >
-                {/* Botón: Reproducir con Audio */}
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -424,7 +389,6 @@ const PageLoader = () => {
                   </span>
                 </motion.button>
 
-                {/* Botón: Continuar sin Audio */}
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

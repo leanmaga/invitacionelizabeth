@@ -81,6 +81,7 @@
     serif;
   --font-family-sans: ui-sans-serif, system-ui, sans-serif;
   --font-family-coockie: var(--font-coockie), cursive;
+  --font-Emilys_Candy: var(--font-Emilys_Candy), cursive;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,6 +110,10 @@
 
 .font-coockie {
   font-family: var(--font-family-coockie);
+}
+.font-Emilys_Candy {
+  font-family: var(--font-Emilys_Candy);
+  font-weight: 400;
 }
 
 /* ==========================================

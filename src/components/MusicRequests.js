@@ -175,7 +175,7 @@ export default function MusicRequests() {
                   </div>
 
                   <h2
-                    className="font-bold text-4xl sm:text-5xl mb-6 leading-tight"
+                    className="font-Emilys_Candy font-bold text-4xl sm:text-5xl mb-6 leading-tight"
                     style={{
                       color: colores.primario[100],
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
@@ -183,7 +183,9 @@ export default function MusicRequests() {
                   >
                     Pide tu Canción
                     <br />
-                    <span className="text-3xl sm:text-4xl">Favorita</span>
+                    <span className="font-Emilys_Candy text-3xl sm:text-4xl">
+                      Favorita
+                    </span>
                   </h2>
 
                   <p
@@ -577,14 +579,14 @@ export default function MusicRequests() {
                   </div>
 
                   <h2
-                    className="font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
+                    className="font-Emilys_Candy font-bold text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight"
                     style={{
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
                     }}
                   >
                     Pide tu Canción
                     <br />
-                    <span className="text-4xl md:text-5xl lg:text-6xl">
+                    <span className="font-Emilys_Candy text-4xl md:text-5xl lg:text-6xl">
                       Favorita
                     </span>
                   </h2>

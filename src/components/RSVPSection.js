@@ -210,7 +210,7 @@ export default function RSVPSection() {
               </div>
 
               <h2
-                className="font-bold text-4xl sm:text-5xl mb-6 leading-tight"
+                className="font-Emilys_Candy font-bold text-4xl sm:text-5xl mb-6 leading-tight"
                 style={{
                   color: colores.primario[800],
                   textShadow: `0 4px 20px ${colores.primario[600]}4d`,
@@ -349,7 +349,7 @@ export default function RSVPSection() {
                     </div>
 
                     <h2
-                      className="font-bold text-5xl md:text-6xl mb-6 leading-tight"
+                      className="font-Emilys_Candy font-bold text-5xl md:text-6xl mb-6 leading-tight"
                       style={{
                         color: colores.primario[800],
                         textShadow: `0 4px 20px ${colores.primario[600]}4d`,
@@ -439,7 +439,7 @@ export default function RSVPSection() {
                   </div>
 
                   <h2
-                    className="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight text-white"
+                    className="font-Emilys_Candy font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight text-white"
                     style={{
                       textShadow: "0 4px 20px rgba(0, 0, 0, 0.5)",
                     }}
@@ -742,7 +742,7 @@ export default function RSVPSection() {
                     </div>
 
                     <h2
-                      className="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight"
+                      className="font-Emilys_Candy font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight"
                       style={{
                         color: colores.primario[800],
                         textShadow: `0 4px 20px ${colores.primario[600]}4d`,

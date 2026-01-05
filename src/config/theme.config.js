@@ -93,10 +93,10 @@ export const themeConfig = {
 
   // 🔤 TIPOGRAFÍA
   fuentes: {
-    titulo: "var(--font-serif)", // Fuente elegante para títulos
+    titulo: "var(--font-Emilys_Candy)", // Fuente elegante para títulos
     cursiva: "var(--font-dancing)", // Fuente decorativa
     texto: "var(--font-sans)", // Fuente para texto normal
-    especial: "var(--font-coockie)", // Fuente especial
+    especial: "var(--font-Emilys_Candy)", // Fuente especial
   },
 
   // 📐 ESPACIADO Y TAMAÑOS

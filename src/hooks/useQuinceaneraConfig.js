@@ -10,16 +10,6 @@ import {
 } from "@/config/client.config";
 import { themeConfig } from "@/config/theme.config";
 
-/**
- * 🎯 HOOK CENTRALIZADO DE CONFIGURACIÓN
- *
- * Este hook combina:
- * 1. Configuración del cliente (client.config.js)
- * 2. Variables de entorno (para valores sensibles como API keys)
- * 3. Configuración de tema (theme.config.js)
- *
- * PRIORIDAD: client.config.js > variables de entorno > valores por defecto
- */
 export function useQuinceaneraConfig() {
   // 👤 INFORMACIÓN PERSONAL
   const nombre = clientConfig.quinceañera.nombre;

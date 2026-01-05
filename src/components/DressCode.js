@@ -56,8 +56,7 @@ export default function DressCodeSection() {
   const categories = {
     formal: {
       title: "Elegante sport",
-      subtitle:
-        "Preferentemente, se invita a usar prendas, accesorios, maquillaje o peinados inspirados en la temática Alicia en el País de las Maravillas.",
+      subtitle: "Atuendo sofisticado y cómodo",
       icon: Crown,
       colorClass: "from-rose-400 to-rose-500",
     },
@@ -149,7 +148,7 @@ export default function DressCodeSection() {
           </div>
 
           <h2
-            className="font-serif text-5xl md:text-7xl font-bold mb-8 p-4 dresscode-shimmer-text"
+            className="font-Emilys_Candy text-5xl md:text-7xl font-bold mb-8 p-4 dresscode-shimmer-text"
             style={{
               background: `linear-gradient(90deg, ${colores.primario[500]} 0%, ${colores.terciario[400]} 50%, ${colores.primario[500]} 100%)`,
               backgroundSize: "200% 100%",
@@ -160,17 +159,6 @@ export default function DressCodeSection() {
           >
             Código de Vestimenta
           </h2>
-
-          <p
-            className="text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed"
-            style={{ color: colores.primario[700] }}
-          >
-            Una celebración elegante requiere el atuendo perfecto.
-            <br />
-            <span className="font-semibold">
-              Prepárate para brillar en cada momento
-            </span>
-          </p>
         </div>
 
         {/* Navegación de Categorías */}
@@ -224,39 +212,6 @@ export default function DressCodeSection() {
           {/* Cards para Categoría Formal */}
           {activeCategory === "formal" && (
             <div className="max-w-7xl mx-auto">
-              {/* Restricción de Colores */}
-              {dressCode.coloresRestringidos.length > 0 && (
-                <div
-                  className="glass-morphism rounded-2xl p-6 mb-12 max-w-4xl mx-auto"
-                  style={{
-                    borderLeft: `4px solid ${colores.primario[500]}`,
-                  }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <Sparkles
-                      className="w-6 h-6"
-                      style={{ color: colores.primario[600] }}
-                    />
-                    <h4
-                      className="text-xl font-bold"
-                      style={{ color: colores.primario[800] }}
-                    >
-                      Nota Importante sobre Colores
-                    </h4>
-                  </div>
-                  <p
-                    className="text-lg"
-                    style={{ color: colores.primario[700] }}
-                  >
-                    {dressCode.mensajeRestriccion}
-                    <span className="font-bold">
-                      {" "}
-                      {dressCode.coloresRestringidos.join(" y ")}
-                    </span>
-                  </p>
-                </div>
-              )}
-
               {/* Grid de Cards para Caballeros y Damas */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                 {/* Card Caballeros */}
@@ -451,8 +406,8 @@ export default function DressCodeSection() {
             >
               Recuerda que lo más importante es que te sientas cómodo y seguro
               para disfrutar al máximo de esta celebración única. Tu presencia
-              es el mejor regalo y tu sonrisa será el accesorio más hermoso de
-              la noche.
+              es el mejor regalo y tu sonrisa será el accesorio más hermoso del
+              día.
             </p>
 
             <div className="flex items-center justify-center gap-4 mt-6">

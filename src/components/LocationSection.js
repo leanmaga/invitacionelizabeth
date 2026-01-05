@@ -75,8 +75,14 @@ export default function LocationSection() {
             style={{ color: colores.primario[600] }}
           />
           <h2
-            className="font-serif text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: colores.primario[800] }}
+            className="font-Emilys_Candy text-5xl md:text-7xl font-bold mb-8 p-4 dresscode-shimmer-text"
+            style={{
+              background: `linear-gradient(90deg, ${colores.primario[500]} 0%, ${colores.terciario[400]} 50%, ${colores.primario[500]} 100%)`,
+              backgroundSize: "200% 100%",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
           >
             Ubicación del Evento
           </h2>
@@ -174,8 +180,6 @@ export default function LocationSection() {
                     </h4>
                     <p style={{ color: colores.primario[700] }}>
                       Recepción: {horaInicio}
-                      <br />
-                      Evento hasta: {horaFin}
                     </p>
                   </div>
                 </div>

@@ -9,7 +9,6 @@ import { useQuinceaneraConfig } from "@/hooks/useQuinceaneraConfig";
 const navItems = [
   { name: "Inicio", href: "#hero" },
   { name: "Detalles", href: "#details" },
-  { name: "Galería", href: "#gallery" },
   { name: "Dress Code", href: "#dresscode" },
   { name: "Ubicación", href: "#location" },
   { name: "Música", href: "#music" },
@@ -74,11 +73,10 @@ export default function Navigation() {
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="font-coockie text-xl sm:text-2xl md:text-3xl font-bold flex-shrink-0"
+              className="font-Emilys_Candy text-xl sm:text-2xl md:text-3xl font-bold flex-shrink-0"
               style={{
                 color: colores.primario[600],
                 textShadow: `0 0 10px ${colores.primario[400]}, 0 0 20px ${colores.primario[500]}`,
-                fontFamily: "var(--font-dancing)",
               }}
             >
               {nombre}

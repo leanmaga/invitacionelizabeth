@@ -10,9 +10,10 @@ import RSVPSection from "@/components/RSVPSection";
 import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { AudioProvider } from "@/components/AudioContext";
-import MasonryGallery from "@/components/MasonryGallery";
-import { LoadingProvider, useLoading } from "@/components/PageLoader";
-import PageLoader from "@/components/PageLoader";
+import PageLoader, {
+  LoadingProvider,
+  useLoading,
+} from "@/components/PageLoader";
 
 const MainContent = () => {
   const { isLoading } = useLoading();
@@ -39,7 +40,6 @@ const MainContent = () => {
             <HeroSection />
             <CountdownSection />
             <EventDetails />
-            <MasonryGallery />
             <DressCode />
             <LocationSection />
             <MusicRequests />
@@ -54,12 +54,12 @@ const MainContent = () => {
 
 export default function Home() {
   return (
-    <LoadingProvider>
-      <AudioProvider audioSrc="/Cigarettes.mp3">
+    <AudioProvider audioSrc="/Cigarettes.mp3">
+      <LoadingProvider>
         <div className="min-h-screen w-full overflow-x-hidden">
           <MainContent />
         </div>
-      </AudioProvider>
-    </LoadingProvider>
+      </LoadingProvider>
+    </AudioProvider>
   );
 }

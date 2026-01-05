@@ -9,30 +9,29 @@
 export const clientConfig = {
   // 👤 INFORMACIÓN PERSONAL
   quinceañera: {
-    nombre: "Elizabeth",
-    edad: 15,
+    nombre: "Olivia",
+    edad: 4,
     apodo: "", // Opcional, ej: 'Eli'
   },
 
   // 📅 INFORMACIÓN DEL EVENTO
   evento: {
-    fecha: "Sábado 01 de Noviembre, 2025",
+    fecha: "Domingo 25 de Enero, 2026",
     // ⚠️ IMPORTANTE: Formato de fechaCompleta para countdown (YYYY-MM-DD)
-    fechaCompleta: "2025-11-01",
-    hora: "12:00 a 20:00",
-    horaInicio: "12:00",
-    horaFin: "20:00",
+    fechaCompleta: "2026-01-25",
+    hora: "10:00 AM",
+    horaInicio: "10:00",
   },
 
   // 📍 UBICACIÓN
   ubicacion: {
-    nombreLugar: "Ángel Vicente Peñaloza 3455",
-    direccion: "Entre Segurola y Av. Eva Perón, B1716 Libertad, Merlo.",
-    ciudad: "Libertdad, Merlo",
+    nombreLugar: "",
+    direccion: "Achupallas 420",
+    ciudad: "Mariano Acosta",
     provincia: "Buenos Aires",
     pais: "Argentina",
     // URLs de mapas (se generan automáticamente pero puedes personalizarlas)
-    googleMapsUrl: "https://maps.app.goo.gl/GLyir2p9khfF6qLL8", // Déjalo vacío para que se genere automáticamente
+    googleMapsUrl: "https://maps.app.goo.gl/a98M1oL8oEfs5jTp6?g_st=iW", // Déjalo vacío para que se genere automáticamente
     wazeUrl:
       "https://ul.waze.com/ul?place=ChIJHzAU50vAvJURDGwKF_UHSCA&ll=-34.70682730%2C-58.71007240&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location", // Déjalo vacío para que se genere automáticamente
     // O proporciona URLs personalizadas:
@@ -50,10 +49,10 @@ export const clientConfig = {
 
   // 👨‍👩‍👧‍👦 INFORMACIÓN DE CONTACTO
   contacto: {
-    nombreFamilia: "Familia González",
-    telefono: "+54 9 11 2271-0612",
+    nombreFamilia: "Familia ...",
+    telefono: "+54 9 11 2776-4823",
     email: "contacto@example.com",
-    whatsapp: "+541122710612", // Sin espacios ni guiones
+    whatsapp: "+541127764823", // Sin espacios ni guiones
   },
 
   // 📱 REDES SOCIALES
@@ -76,9 +75,9 @@ export const clientConfig = {
 
   // 📝 CONFIRMACIÓN DE ASISTENCIA (RSVP)
   rsvp: {
-    fechaLimite: "15 de Octubre, 2025",
+    fechaLimite: "20 de Enero, 2026",
     // Fecha límite en formato ISO para validaciones
-    fechaLimiteISO: "2025-10-30",
+    fechaLimiteISO: "2026-01-20",
     mensajeCierre: "¡Gracias por confirmar tu asistencia!",
     mostrarDietaryRestrictions: true, // Mostrar campo de restricciones alimentarias
   },

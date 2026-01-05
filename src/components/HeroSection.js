@@ -131,7 +131,7 @@ export default function HeroSection() {
   const titleStyles = {
     className: "text-6xl md:text-8xl lg:text-9xl font-bold mb-4 relative z-10",
     style: {
-      fontFamily: "var(--font-dancing)",
+      fontFamily: "var(--font-Emilys_Candy)",
       color: colores.primario[200],
       textShadow: `0 0 20px ${colores.primario[400]}, 0 0 40px ${colores.primario[500]}, 0 0 60px ${colores.terciario[400]}, 2px 2px 8px rgba(0,0,0,0.8)`,
     },
@@ -142,28 +142,15 @@ export default function HeroSection() {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Fondo base con gradiente rosa dusty claro */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 20%, ${colores.primario[400]}40 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, ${colores.primario[500]}40 0%, transparent 50%),
-            radial-gradient(circle at 40% 60%, ${colores.primario[600]}25 0%, transparent 50%),
-            linear-gradient(135deg, ${colores.primario[50]} 0%, ${colores.secundario[100]} 25%, ${colores.terciario[200]} 75%, ${colores.primario[300]} 100%)
-          `,
-        }}
-      />
-
       {/* Tapiz con opacidad para que se vea sobre el fondo claro */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('/assets/tapiz1.png')`,
+          backgroundImage: `url('/assets/tapiz.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.15,
+
           mixBlendMode: "multiply",
         }}
       />
@@ -183,7 +170,6 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Destellos mágicos estilo Ghibli */}
       <GhibliSparkles count={25} colores={colores} />
       <ColorfulParticles count={12} colores={colores} />
 
@@ -194,11 +180,6 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="mb-8 relative"
         >
-          <Crown
-            className="w-16 h-16 mx-auto mb-4 animate-bounce drop-shadow-lg"
-            style={{ color: colores.primario[400] }}
-          />
-
           {/* Contenedor del nombre */}
           <div className="relative">
             <motion.h1
@@ -311,7 +292,7 @@ export default function HeroSection() {
               ease: "easeInOut",
             }}
           >
-            Vení a celebrar conmigo un día mágico
+            Acompañanos a celebrar bajo del mar
           </motion.p>
         </motion.div>
       </div>

@@ -19,16 +19,8 @@ export default function DelicateEventDetails() {
   const [copied, setCopied] = useState(false);
 
   // ✅ Usar configuración centralizada
-  const {
-    fechaEvento,
-    horaEvento,
-    lugar,
-    direccion,
-    alias,
-    mostrarRegalos,
-    mensajeRegalos,
-    colores,
-  } = useQuinceaneraConfig();
+  const { fechaEvento, horaEvento, lugar, direccion, colores } =
+    useQuinceaneraConfig();
 
   // Función para copiar el alias al portapapeles
   const handleCopyAlias = async () => {
@@ -114,7 +106,7 @@ export default function DelicateEventDetails() {
           </div>
 
           <h2
-            className="font-serif text-xl md:text-2xl font-semibold mb-2"
+            className="font-Emilys_Candy text-xl md:text-2xl font-semibold mb-2"
             style={{
               background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.terciario[600]})`,
               WebkitBackgroundClip: "text",
@@ -212,151 +204,6 @@ export default function DelicateEventDetails() {
             );
           })}
         </div>
-
-        {/* Sección de regalos - delicada (condicional) */}
-        {mostrarRegalos && (
-          <div
-            className="bg-white/70 backdrop-blur-sm rounded-xl p-6 text-center shadow-sm max-w-2xl mx-auto"
-            style={{
-              border: `1px solid ${colores.primario[200]}80`,
-            }}
-          >
-            {/* Header de regalos */}
-            <div className="mb-4">
-              <div className="relative inline-block mb-2">
-                <div
-                  className="absolute inset-0 blur-md rounded-full"
-                  style={{
-                    background: `linear-gradient(to right, ${colores.primario[200]}80, ${colores.terciario[200]}80)`,
-                  }}
-                />
-                <Gift
-                  className="relative w-6 h-6 mx-auto"
-                  style={{ color: colores.primario[600] }}
-                />
-              </div>
-
-              <h3
-                className="font-serif text-lg font-semibold mb-2"
-                style={{
-                  background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.terciario[600]})`,
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Un Detalle Especial
-              </h3>
-            </div>
-
-            {/* Contenido de regalos */}
-            <div className="space-y-3 mb-4">
-              <p
-                className="text-sm font-medium"
-                style={{ color: colores.primario[800] }}
-              >
-                {mensajeRegalos ||
-                  "Podés dejar tu obsequio de manera monetaria al:"}
-              </p>
-
-              {/* Alias destacado con botón de copiar */}
-              {alias && (
-                <div className="flex items-center justify-center gap-2">
-                  <div
-                    className="inline-block rounded-lg px-3 py-1.5 shadow-sm"
-                    style={{
-                      backgroundColor: `${colores.primario[50]}cc`,
-                      border: `1px solid ${colores.primario[200]}80`,
-                    }}
-                  >
-                    <div
-                      className="text-base font-bold"
-                      style={{
-                        background: `linear-gradient(to right, ${colores.primario[700]}, ${colores.terciario[600]})`,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        backgroundClip: "text",
-                      }}
-                    >
-                      {alias}
-                    </div>
-                  </div>
-
-                  {/* Botón de copiar */}
-                  <button
-                    onClick={handleCopyAlias}
-                    className="group relative inline-flex items-center justify-center w-8 h-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-110 active:scale-95"
-                    style={{
-                      backgroundColor: copied
-                        ? colores.primario[500]
-                        : `${colores.primario[100]}cc`,
-                      border: `1px solid ${colores.primario[200]}80`,
-                    }}
-                    aria-label="Copiar alias"
-                  >
-                    {copied ? (
-                      <Check
-                        className="w-4 h-4 text-white animate-bounce"
-                        style={{ animationIterationCount: 1 }}
-                      />
-                    ) : (
-                      <Copy
-                        className="w-4 h-4 transition-colors duration-300"
-                        style={{ color: colores.primario[600] }}
-                      />
-                    )}
-
-                    {/* Tooltip */}
-                    <div
-                      className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-md"
-                      style={{
-                        backgroundColor: colores.primario[700],
-                        color: "white",
-                      }}
-                    >
-                      {copied ? "¡Copiado!" : "Copiar"}
-                    </div>
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Decoración final */}
-            <div className="flex justify-center items-center gap-2">
-              <Heart
-                className="w-3 h-3 animate-pulse"
-                style={{ color: colores.primario[500] }}
-              />
-              <div className="flex gap-1">
-                <div
-                  className="w-1 h-1 rounded-full animate-pulse"
-                  style={{
-                    backgroundColor: colores.primario[500],
-                    animationDelay: "0s",
-                  }}
-                />
-                <div
-                  className="w-1 h-1 rounded-full animate-pulse"
-                  style={{
-                    backgroundColor: colores.primario[500],
-                    animationDelay: "0.2s",
-                  }}
-                />
-                <div
-                  className="w-1 h-1 rounded-full animate-pulse"
-                  style={{
-                    backgroundColor: colores.primario[500],
-                    animationDelay: "0.4s",
-                  }}
-                />
-              </div>
-              <Heart
-                className="w-3 h-3 animate-pulse"
-                style={{ color: colores.primario[500] }}
-              />
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Estilos adicionales para animaciones suaves */}
