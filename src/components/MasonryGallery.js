@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { X, ZoomIn, MessageCircle, Send, Heart, RotateCcw } from "lucide-react";
 import Image from "next/image";
 import { useLoading } from "@/components/PageLoader";
@@ -26,6 +26,12 @@ const MasonryGallery = () => {
   const { updateImageCount, incrementLoadedImages } = useLoading();
   const loadedCount = useRef(0);
   const hasInitialized = useRef(false); // ✅ AGREGADO
+
+  const images = Array.from({ length: 9 }, (_, i) => ({
+    id: i + 1,
+    src: `/assets/${i + 1}.jpg`,
+    alt: `Image ${i + 1}`,
+  }));
 
   useEffect(() => {
     const checkMobile = () => {
@@ -60,14 +66,13 @@ const MasonryGallery = () => {
       hasInitialized.current = true;
       console.log(`📊 Total de imágenes registradas: ${TOTAL_IMAGES}`);
     }
-  }, []); // Array vacío - ejecutar solo una vez
-
-  // ✅ SEPARADO - Cargar comentarios
-  useEffect(() => {
-    loadAllCommentCounts();
+    // Se ejecuta solo una vez a propósito (hasInitialized controla el guard);
+    // no queremos re-disparar esto si updateImageCount cambia de referencia.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const loadAllCommentCounts = async () => {
+  // ✅ Memoizada con useCallback para poder declararla como dependencia
+  const loadAllCommentCounts = useCallback(async () => {
     try {
       const promises = images.map(async (image) => {
         const response = await fetch(`/api/image-comments?imageId=${image.id}`);
@@ -85,13 +90,13 @@ const MasonryGallery = () => {
     } catch (error) {
       console.error("Error loading comment counts:", error);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const images = Array.from({ length: 9 }, (_, i) => ({
-    id: i + 1,
-    src: `/assets/${i + 1}.jpg`,
-    alt: `Image ${i + 1}`,
-  }));
+  // ✅ SEPARADO - Cargar comentarios
+  useEffect(() => {
+    loadAllCommentCounts();
+  }, [loadAllCommentCounts]);
 
   const loadComments = async (imageId) => {
     if (comments[imageId]) return;
@@ -350,11 +355,15 @@ const MasonryGallery = () => {
             <div className={`polaroid-container ${isFlipped ? "flipped" : ""}`}>
               <div className="polaroid-front">
                 <div className="polaroid-content">
-                  <img
-                    src={selectedImage.src}
-                    alt={selectedImage.alt}
-                    className="polaroid-image"
-                  />
+                  <div className="polaroid-image-wrapper">
+                    <Image
+                      src={selectedImage.src}
+                      alt={selectedImage.alt}
+                      className="polaroid-image"
+                      fill
+                      sizes="(max-width: 768px) 90vw, 500px"
+                    />
+                  </div>
 
                   <div className="polaroid-footer">
                     <h2 id="modal-title" className="image-title">
@@ -384,7 +393,7 @@ const MasonryGallery = () => {
                       onKeyDown={(e) => handleKeyDown(e, handleViewMessages)}
                       className="view-messages-button"
                       aria-label={`Ver mensajes de esta imagen. ${getMessagesText(
-                        selectedImage.id
+                        selectedImage.id,
                       )}`}
                       tabIndex={0}
                     >
@@ -575,7 +584,7 @@ const MasonryGallery = () => {
                                     <hr className="message-separator" />
                                   )}
                                 </div>
-                              )
+                              ),
                             )}
                           </div>
                         ) : (

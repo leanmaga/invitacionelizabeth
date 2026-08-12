@@ -35,7 +35,7 @@ export default function RSVPSection() {
 
   if (!whatsapp) {
     console.error(
-      "❌ NEXT_PUBLIC_WHATSAPP_NUMBER no está configurado en .env.local"
+      "❌ NEXT_PUBLIC_WHATSAPP_NUMBER no está configurado en .env.local",
     );
   }
 
@@ -156,7 +156,7 @@ export default function RSVPSection() {
     } catch (error) {
       console.error("Error submitting RSVP:", error);
       setError(
-        "Hubo un error al guardar la confirmación. El WhatsApp se abrirá de todas formas."
+        "Hubo un error al guardar la confirmación. El WhatsApp se abrirá de todas formas.",
       );
 
       sendToWhatsApp(formData);
@@ -327,21 +327,21 @@ export default function RSVPSection() {
             }}
           />
 
-          <div className="relative z-10 h-screen flex items-center">
+          <div className="relative z-10 min-h-screen flex items-center py-10 lg:py-8 xl:py-12">
             <div className="w-full h-full">
-              <div className="grid lg:grid-cols-2 gap-0 h-full min-h-screen">
-                <div className="flex items-center justify-center h-full min-h-screen lg:min-h-0 px-8">
+              <div className="grid lg:grid-cols-2 gap-0 h-full min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-4rem)] xl:min-h-[calc(100vh-6rem)]">
+                <div className="flex items-center justify-center h-full px-6 lg:px-6 xl:px-8">
                   <div className="text-center rsvp-scale-in">
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center mb-6 lg:mb-5 xl:mb-8">
                       <div className="rsvp-bounce-icon">
                         {isExisting ? (
                           <CheckCircle
-                            className="w-24 h-24"
+                            className="w-16 h-16 lg:w-14 lg:h-14 xl:w-24 xl:h-24"
                             style={{ color: colores.primario[600] }}
                           />
                         ) : (
                           <Heart
-                            className="w-24 h-24"
+                            className="w-16 h-16 lg:w-14 lg:h-14 xl:w-24 xl:h-24"
                             style={{ color: colores.primario[600] }}
                           />
                         )}
@@ -349,7 +349,7 @@ export default function RSVPSection() {
                     </div>
 
                     <h2
-                      className="font-bold text-5xl md:text-6xl mb-6 leading-tight"
+                      className="font-bold text-3xl lg:text-3xl xl:text-6xl mb-4 lg:mb-3 xl:mb-6 leading-tight"
                       style={{
                         color: colores.primario[800],
                         textShadow: `0 4px 20px ${colores.primario[600]}4d`,
@@ -361,7 +361,7 @@ export default function RSVPSection() {
                     </h2>
 
                     <p
-                      className="text-xl max-w-lg mx-auto mb-8 font-medium"
+                      className="text-base lg:text-base xl:text-xl max-w-lg mx-auto mb-6 lg:mb-5 xl:mb-8 font-medium"
                       style={{ color: `${colores.primario[900]}cc` }}
                     >
                       {isExisting
@@ -381,7 +381,7 @@ export default function RSVPSection() {
                           message: "",
                         });
                       }}
-                      className="px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:scale-105"
+                      className="px-5 py-2.5 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 backdrop-blur-sm hover:scale-105 text-sm lg:text-sm xl:text-base"
                       style={{
                         background: `linear-gradient(to right, ${colores.primario[200]}cc, ${colores.secundario[300]}cc)`,
                         color: colores.primario[800],
@@ -724,16 +724,16 @@ export default function RSVPSection() {
           }}
         />
 
-        <div className="relative z-10 h-screen flex items-center">
+        <div className="relative z-10 min-h-screen flex items-center py-8 lg:py-6 xl:py-12">
           <div className="w-full h-full">
-            <div className="grid lg:grid-cols-2 gap-0 h-full min-h-screen">
-              <div className="flex items-center justify-center h-full min-h-screen lg:min-h-0 px-8">
-                <div className="w-full max-w-lg">
-                  <div className="text-center mb-8 rsvp-fade-in-up">
-                    <div className="relative inline-flex items-center justify-center mb-6">
+            <div className="grid lg:grid-cols-2 gap-0 h-full">
+              <div className="flex items-center justify-center h-full px-6 lg:px-6 xl:px-8">
+                <div className="w-full max-w-md lg:max-w-md xl:max-w-lg">
+                  <div className="text-center mb-6 lg:mb-4 xl:mb-8 rsvp-fade-in-up">
+                    <div className="relative inline-flex items-center justify-center mb-4 lg:mb-3 xl:mb-6">
                       <div className="absolute inset-0 rsvp-pulse-glow">
                         <div
-                          className="w-20 h-20 rounded-full blur-2xl"
+                          className="w-16 h-16 lg:w-14 lg:h-14 xl:w-20 xl:h-20 rounded-full blur-2xl"
                           style={{
                             background: `linear-gradient(135deg, ${colores.primario[400]}80, ${colores.terciario[400]}80)`,
                           }}
@@ -742,7 +742,7 @@ export default function RSVPSection() {
                     </div>
 
                     <h2
-                      className="font-bold text-2xl md:text-3xl lg:text-4xl mb-4 leading-tight"
+                      className="font-bold text-2xl lg:text-2xl xl:text-4xl mb-3 lg:mb-2 xl:mb-4 leading-tight"
                       style={{
                         color: colores.primario[800],
                         textShadow: `0 4px 20px ${colores.primario[600]}4d`,
@@ -754,7 +754,7 @@ export default function RSVPSection() {
                     </h2>
 
                     <p
-                      className="text-lg max-w-lg mx-auto mb-6 font-medium"
+                      className="text-sm lg:text-sm xl:text-lg max-w-lg mx-auto mb-2 lg:mb-2 xl:mb-6 font-medium"
                       style={{ color: `${colores.primario[900]}cc` }}
                     >
                       antes del{" "}
@@ -769,7 +769,7 @@ export default function RSVPSection() {
                   </div>
 
                   <div
-                    className="bg-white/60 backdrop-blur-lg rounded-3xl p-6 shadow-2xl rsvp-scale-in"
+                    className="bg-white/60 backdrop-blur-lg rounded-3xl p-4 lg:p-4 xl:p-6 shadow-2xl rsvp-scale-in"
                     style={{
                       border: `1px solid ${colores.primario[300]}66`,
                     }}
@@ -782,9 +782,9 @@ export default function RSVPSection() {
                         </div>
                       )}
 
-                      <div className="mb-4">
+                      <div className="mb-3 lg:mb-2.5 xl:mb-4">
                         <label
-                          className="block font-medium mb-2 flex items-center gap-2"
+                          className="block font-medium mb-1.5 lg:mb-1.5 xl:mb-2 flex items-center gap-2"
                           style={{ color: colores.primario[800] }}
                         >
                           <User
@@ -806,7 +806,7 @@ export default function RSVPSection() {
                           onChange={handleChange}
                           required
                           disabled={loading}
-                          className="w-full px-3 py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
+                          className="w-full px-3 py-1.5 lg:py-1.5 xl:py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
                           style={{
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
@@ -815,9 +815,9 @@ export default function RSVPSection() {
                         />
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-3 lg:mb-2.5 xl:mb-4">
                         <label
-                          className="block font-medium mb-2 flex items-center gap-2"
+                          className="block font-medium mb-1.5 lg:mb-1.5 xl:mb-2 flex items-center gap-2"
                           style={{ color: colores.primario[800] }}
                         >
                           <Phone
@@ -832,7 +832,7 @@ export default function RSVPSection() {
                           value={formData.phone}
                           onChange={handleChange}
                           disabled={loading}
-                          className="w-full px-3 py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
+                          className="w-full px-3 py-1.5 lg:py-1.5 xl:py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
                           style={{
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
@@ -841,9 +841,9 @@ export default function RSVPSection() {
                         />
                       </div>
 
-                      <div className="mb-4">
+                      <div className="mb-3 lg:mb-2.5 xl:mb-4">
                         <label
-                          className="block font-medium mb-2 flex items-center gap-2"
+                          className="block font-medium mb-1.5 lg:mb-1.5 xl:mb-2 flex items-center gap-2"
                           style={{ color: colores.primario[800] }}
                         >
                           <Utensils
@@ -860,7 +860,7 @@ export default function RSVPSection() {
                           value={formData.dietary_restrictions}
                           onChange={handleChange}
                           disabled={loading}
-                          className="w-full px-3 py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
+                          className="w-full px-3 py-1.5 lg:py-1.5 xl:py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all backdrop-blur-sm disabled:opacity-50 text-sm"
                           style={{
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
@@ -869,9 +869,9 @@ export default function RSVPSection() {
                         />
                       </div>
 
-                      <div className="mb-6">
+                      <div className="mb-4 lg:mb-3 xl:mb-6">
                         <label
-                          className="block font-medium mb-2 flex items-center gap-2"
+                          className="block font-medium mb-1.5 lg:mb-1.5 xl:mb-2 flex items-center gap-2"
                           style={{ color: colores.primario[800] }}
                         >
                           <Heart
@@ -886,9 +886,9 @@ export default function RSVPSection() {
                           name="message"
                           value={formData.message}
                           onChange={handleChange}
-                          rows={3}
+                          rows={2}
                           disabled={loading}
-                          className="w-full px-3 py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 text-sm"
+                          className="w-full px-3 py-1.5 lg:py-1.5 xl:py-2 bg-white/50 rounded-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none backdrop-blur-sm disabled:opacity-50 text-sm"
                           style={{
                             border: `1px solid ${colores.primario[300]}80`,
                             color: colores.primario[900],
@@ -900,7 +900,7 @@ export default function RSVPSection() {
                       <button
                         onClick={handleSubmit}
                         disabled={loading || !formData.name.trim()}
-                        className="w-full px-6 py-3 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl hover:scale-105"
+                        className="w-full px-5 py-2.5 lg:px-5 lg:py-2.5 xl:px-6 xl:py-3 rounded-xl font-bold text-base lg:text-base xl:text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl hover:scale-105"
                         style={{
                           background: `linear-gradient(to right, ${colores.primario[400]}, ${colores.primario[500]}, ${colores.terciario[400]})`,
                           color: colores.primario[900],
@@ -923,7 +923,7 @@ export default function RSVPSection() {
                       </button>
 
                       <div
-                        className="mt-4 p-3 rounded-xl"
+                        className="mt-3 lg:mt-3 xl:mt-4 p-2.5 lg:p-2.5 xl:p-3 rounded-xl"
                         style={{
                           background: `linear-gradient(to right, ${colores.primario[100]}cc, ${colores.secundario[100]}cc)`,
                           border: `1px solid ${colores.primario[300]}66`,

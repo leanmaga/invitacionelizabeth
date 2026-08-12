@@ -71,7 +71,7 @@ export default function CountdownSection() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [fechaCompleta]);
+  }, [fechaCompleta, horaInicio]);
 
   // Traducción de unidades
   const timeUnits = {

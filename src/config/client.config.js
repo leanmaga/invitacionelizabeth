@@ -16,9 +16,9 @@ export const clientConfig = {
 
   // 📅 INFORMACIÓN DEL EVENTO
   evento: {
-    fecha: "Sábado 01 de Noviembre, 2025",
+    fecha: "Sábado 01 de Noviembre, 2026",
     // ⚠️ IMPORTANTE: Formato de fechaCompleta para countdown (YYYY-MM-DD)
-    fechaCompleta: "2025-11-01",
+    fechaCompleta: "2026-11-01",
     hora: "12:00 a 20:00",
     horaInicio: "12:00",
     horaFin: "20:00",
@@ -50,10 +50,10 @@ export const clientConfig = {
 
   // 👨‍👩‍👧‍👦 INFORMACIÓN DE CONTACTO
   contacto: {
-    nombreFamilia: "Familia González",
-    telefono: "+54 9 11 2271-0612",
+    nombreFamilia: "Familia Fernández",
+    telefono: "+54 9 11 2776-4823",
     email: "contacto@example.com",
-    whatsapp: "+541122710612", // Sin espacios ni guiones
+    whatsapp: "+541127764823", // Sin espacios ni guiones
   },
 
   // 📱 REDES SOCIALES
@@ -68,17 +68,17 @@ export const clientConfig = {
   // 🎁 INFORMACIÓN BANCARIA PARA REGALOS
   regalos: {
     mostrarOpcion: true, // true o false
-    alias: "ledesma.599.mp",
-    cbu: "0000003100052227123206",
+    alias: "lean.maga",
+    cbu: "0000",
     nombreCuenta: "",
     mensajePersonalizado: "",
   },
 
   // 📝 CONFIRMACIÓN DE ASISTENCIA (RSVP)
   rsvp: {
-    fechaLimite: "15 de Octubre, 2025",
+    fechaLimite: "15 de Octubre, 2026",
     // Fecha límite en formato ISO para validaciones
-    fechaLimiteISO: "2025-10-30",
+    fechaLimiteISO: "2026-10-30",
     mensajeCierre: "¡Gracias por confirmar tu asistencia!",
     mostrarDietaryRestrictions: true, // Mostrar campo de restricciones alimentarias
   },
@@ -206,7 +206,7 @@ export const getMapUrls = () => {
     google:
       googleMapsUrl ||
       `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-        direccionCompleta
+        direccionCompleta,
       )}`,
     waze:
       wazeUrl ||
